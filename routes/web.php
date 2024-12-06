@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,8 @@ Route::get('/', function () {
 
 Route::resource('projects', ProjectController::class);
 Route::resource('tasks', TaskController::class);
+Route::resource('groups', GroupController::class);
+
+// Ruta para agregar un usuario a un grupo
+Route::post('groups/{group}/add-user', [GroupController::class, 'addUserToGroup']);
+
